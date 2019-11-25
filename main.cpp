@@ -1,4 +1,4 @@
-#include<stdlib.h>
+/*#include<stdlib.h>
 #include<stdio.h>
 #include<SDL/SDL.h>
 #include<SDL/SDL_image.h>
@@ -24,4 +24,4 @@ int main ( int argc, char** argv )
 		SDL_BlitSurface(background,NULL, ecran, NULL);
 		SDL_Flip(ecran);
 	}
-}
+}*/
