@@ -1,3 +1,5 @@
+#Générationn des commandes de compilation pour ne pas compiler à la main
+
 # Makefile
 #PATH = /usr/include/SDL
 TARGET = tetris 
@@ -11,5 +13,3 @@ all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LIBS) 
-
-
