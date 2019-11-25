@@ -6,7 +6,7 @@
 #include "includes.h"
 
 #if defined (__LINUX__) || defined (__APPLE__)
-#define	BPP32_2X	1		// Useless with Windows - Vital with Linux.
+#define	BPP32_2X	1	// Useless with Windows - Vital with Linux.
 #endif
 
 struct SRender	gRender;
@@ -122,7 +122,7 @@ SDL_Surface * VideoModeSet(u32 nScrWidth, u32 nScrHeight, u32 nSDL_Flags)
 		//exit(1);
 	}
 	else
-		SDL_FillRect(pSurf, NULL, 7);		// Sous Windows, SDL_SetVideoMode génère un event SDL_VIDEOEXPOSE. Comme on gère F9 dans les events, ça évite le flash rose (0 = rose / 7 = noir).
+		SDL_FillRect(pSurf, NULL, 7);		// Sous Windows, SDL_SetVideoMode gï¿½nï¿½re un event SDL_VIDEOEXPOSE. Comme on gï¿½re F9 dans les events, ï¿½a ï¿½vite le flash rose (0 = rose / 7 = noir).
 	return (pSurf);
 }
 
@@ -164,30 +164,30 @@ void Render_SetVideoMode(void)
 
 }
 
-// Renvoie un ptr sur la surface écran réelle (pour les palettes).
+// Renvoie un ptr sur la surface ï¿½cran rï¿½elle (pour les palettes).
 SDL_Surface * Render_GetRealVideoSurfPtr(void)
 {
 	return (gRender.nRenderMode == e_RenderMode_Normal ? gVar.pScreen : gRender.pScreen2x);
 }
 
-// Init de la vidéo.
+// Init de la vidï¿½o.
 void Render_InitVideo(void)
 {
 	gRender.nRenderMode = e_RenderMode_Normal;
 	gRender.nFullscreenMode = 0;
 
-	gRender.pScreen2x = NULL;		// En mode 2x, ptr sur la surface écran.
-	gRender.pScreenBuf2 = NULL;		// Buffer de rendu pour le jeu en mode 2x (à la place de la surface écran réelle).
+	gRender.pScreen2x = NULL;		// En mode 2x, ptr sur la surface ï¿½cran.
+	gRender.pScreenBuf2 = NULL;		// Buffer de rendu pour le jeu en mode 2x (ï¿½ la place de la surface ï¿½cran rï¿½elle).
 
-	// On initialise d'abord un écran en mode e_RenderMode_Normal. Important, car on fait un CreateRGBSurface à partir de cette surface.
+	// On initialise d'abord un ï¿½cran en mode e_RenderMode_Normal. Important, car on fait un CreateRGBSurface ï¿½ partir de cette surface.
 #ifdef BPP32_2X
 	gVar.pScreen = VideoModeSet(SCR_Width, SCR_Height, 8, gRender.nFullscreenMode ? SDL_FULLSCREEN : 0);
 #else
 	gVar.pScreen = VideoModeSet(SCR_Width, SCR_Height, gRender.nFullscreenMode ? SDL_FULLSCREEN : 0);
 #endif
 	if (gVar.pScreen == NULL) exit(1);
-	// On créé un buffer de la taille de l'écran.
-	// => En mode 2x, on switche le ptr pScreen sur cette surface, les rendus du jeu se font donc dedans. Puis on fait le scale/filtre du buffer vers la vraie surface écran.
+	// On crï¿½ï¿½ un buffer de la taille de l'ï¿½cran.
+	// => En mode 2x, on switche le ptr pScreen sur cette surface, les rendus du jeu se font donc dedans. Puis on fait le scale/filtre du buffer vers la vraie surface ï¿½cran.
 	gRender.pScreenBuf2 = SDL_CreateRGBSurface(SDL_SWSURFACE, SCR_Width, SCR_Height, 8, gVar.pScreen->format->Rmask, gVar.pScreen->format->Gmask, gVar.pScreen->format->Bmask, 0);
 	if (gRender.pScreenBuf2 == NULL)
 	{
@@ -197,9 +197,8 @@ void Render_InitVideo(void)
 
 }
 
-// Libère les ressources du rendu. (1 fois !).
+// LibÃ¨re les ressources du rendu. (1 fois !).
 void RenderRelease(void)
 {
 	SDL_FreeSurface(gRender.pScreenBuf2);
 }
-

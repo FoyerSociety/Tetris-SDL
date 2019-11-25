@@ -17,5 +17,3 @@ void Scr_Save(void);
 
 void Opt_Load(void);
 void Opt_Save(void);
-
-

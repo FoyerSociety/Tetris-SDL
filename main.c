@@ -6,7 +6,7 @@ struct SGene gVar;
 struct SExchange gExg;
 
 
-// Gestionnaire d'�v�nements.
+// Gestionnaire des events
 int EventHandler(void)
 {
 	SDL_Event event;

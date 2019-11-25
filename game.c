@@ -1046,5 +1046,3 @@ u32 TetrisMain(void)
 
 	return (nRetVal);
 }
-
-

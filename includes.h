@@ -88,5 +88,3 @@ struct SExchange	// Echanges entre les modules.
 // Variables générales.
 extern struct SGene gVar;
 extern struct SExchange gExg;
-
-

@@ -4,7 +4,7 @@
 
 struct SSfxGene
 {
-	u8	nInit;		// Son initialisÈ (1) ou pas (0).
+	u8	nInit;		// Son initialis√© (1) ou pas (0).
 	SDL_AudioSpec	sAudioSpec;
     SDL_AudioCVT	pCvt[e_Sfx_LAST];
 
@@ -18,10 +18,10 @@ struct SSample
 	u8	*pData;
 	u32	nDPos;
 	u32	nDLen;
-	u8	nPrio;	// PrioritÈ du son en cours.
+	u8	nPrio;	// Priorit√© du son en cours.
 } gpSounds[SFX_MAX_SOUNDS];
 
-// Mixer, appelÈ par SDL.
+// Mixer, appel√© par SDL.
 void Sfx_MixAudio(void *unused, u8 *stream, int len)
 {
     u32	i;
@@ -136,7 +136,7 @@ void Sfx_LoadWavFiles(void)
 
 }
 
-// LibËre les ressources occupÈes par les fichiers WAV.
+// LibÔøΩre les ressources occup√©es par les fichiers WAV.
 void Sfx_FreeWavFiles(void)
 {
 	u32	i;
@@ -154,9 +154,9 @@ void Sfx_FreeWavFiles(void)
 // Joue un son.
 // Le minimum :
 // On commence par chercher un canal vide.
-// Si il n'y en a pas, on note celui qui ‡ la prioritÈ la plus faible.
-// Si plusieurs ont la mÍme prioritÈ, on note celui qui est le plus proche de la fin.
-// Enfin, si la prio du son ‡ jouer est ok, on le joue dans le canal notÈ.
+// Si il n'y en a pas, on note celui qui √† la priorit√© la plus faible.
+// Si plusieurs ont la m√™me priorit√©, on note celui qui est le plus proche de la fin.
+// Enfin, si la prio du son √† jouer est ok, on le joue dans le canal not√©.
 void Sfx_PlaySfx(u32 nSfxNo, u32 nSfxPrio)
 {
 	u32	index;
@@ -167,7 +167,7 @@ void Sfx_PlaySfx(u32 nSfxNo, u32 nSfxPrio)
 
 	if (!(gVar.nOptFlags & OPT_Sound)) return;	// Pas si sound off.
 
-	if (nSfxNo >= e_Sfx_LAST) return;	// SÈcuritÈ.
+	if (nSfxNo >= e_Sfx_LAST) return;	// S√©curit√©.
 
     // Look for an empty (or finished) sound slot.
     for (index = 0; index < SFX_MAX_SOUNDS; index++)
@@ -195,10 +195,10 @@ void Sfx_PlaySfx(u32 nSfxNo, u32 nSfxPrio)
 
     }
 
-	// On a trouvÈ un emplacement libre ?
+	// On a trouv√© un emplacement libre ?
     if (index == SFX_MAX_SOUNDS)
     {
-    	// Non, la prio demandÈe est > ou == ‡ la prio mini en cours ?
+    	// Non, la prio demand√©e est > ou == √† la prio mini en cours ?
 		if (nSfxPrio < nPrioMinVal) return;
 		index = nPrioMinPos;
     }
@@ -350,5 +350,3 @@ void PlaySound(char *file)
 }
 
 */
-
-

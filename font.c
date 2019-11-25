@@ -19,7 +19,6 @@ void MyItoa(u32 nNb, char *pDst)
 
 
 // Affichage avec une fonte 16x16.
-// !!! Attention, ce n'est pas prévu pour afficher en dehors de l'écran !!!
 void FontPrint(u32 nOffset, char *pStr)
 {
 	u32	nOffTmp;
@@ -58,6 +57,3 @@ void FontPrint(u32 nOffset, char *pStr)
 	SDL_UnlockSurface(gVar.pScreen);
 
 }
-
-
-

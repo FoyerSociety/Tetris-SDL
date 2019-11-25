@@ -4,7 +4,7 @@
 #define FPS_Default 1000 / 70
 u32 gnTimer1;
 
-// Init timers.
+// Initialisation des timers
 void FrameInit(void)
 {
 	gnTimer1 = SDL_GetTicks();
@@ -20,7 +20,7 @@ void FrameWait(void)
 	{
 		nTimer2 = SDL_GetTicks() - gnTimer1;
 		if (nTimer2 >= FPS_Default) break;
-		SDL_Delay(3);	// A revoir, granularité 10 ms.
+		SDL_Delay(3);
 	}
 	gnTimer1 = SDL_GetTicks();
 }
