@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1572032867 source:/srv/http/Tetris-SDL/main.cpp
-	<stdlib.h>
-	<stdio.h>
-	<SDL/SDL.h>
-	<SDL/SDL_image.h>
-	<SDL/SDL_ttf.h>
-
